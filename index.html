@@ -8,10 +8,10 @@
     <meta http-equiv="Expires" content="0">
     <title>Eric Farag | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=1.2">
+    <link rel="stylesheet" href="style.css?v=1.1">
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const currentVersion = '1.2';
+            const currentVersion = '1.1';
             const storedVersion = localStorage.getItem('site-version');
             
             if (storedVersion !== currentVersion) {
@@ -129,20 +129,9 @@
         </div>
     </section>
 
-    <section id="guestbook" class="guestbook">
-        <h2>Guestbook</h2>
-        <form id="guestbook-form">
-            <input type="text" id="guest-name" placeholder="Your name" required>
-            <textarea id="guest-message" placeholder="Your message" required></textarea>
-            <button type="submit">Sign Guestbook</button>
-        </form>
-        <div id="guestbook-messages"></div>
-    </section>
-
     <footer>
         <p>2025 Eric Farag | Portfolio</p>
     </footer>
     <script src="script.js"></script>
-    <script src="guestbook.js"></script>
 </body>
 </html>
