@@ -36,4 +36,38 @@ document.addEventListener('DOMContentLoaded', () => {
     card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(card);
   });
+
+  //Comment Section Logic
+  const WORKER_URL = 'https://guestbook-worker.ericvla2468.workers.dev';
+
+  async function fetchComments() {
+    const response = await fetch(WORKER_URL);
+    const comments = await response.json();
+    const commentsSection = document.getElementById('comments');
+    commentsSection.innerHTML = comments.map(comment => `
+      <div class="comment">
+        <p><strong>${comment.author}</strong>: ${comment.content}</p>
+        <small>${new Date(comment.created_at).toLocaleString()}</small>
+      </div>
+    `).join('');
+  }
+
+  async function addComment(event) {
+    event.preventDefault();
+    const author = document.getElementById('author').value;
+    const content = document.getElementById('content').value;
+
+    await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ author, content }),
+    });
+
+    document.getElementById('author').value = '';
+    document.getElementById('content').value = '';
+    fetchComments();
+  }
+
+  document.getElementById('comment-form').addEventListener('submit', addComment);
+  fetchComments();
 });
