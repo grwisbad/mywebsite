@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(card);
   });
 
-  //Comment Section Logic
   const WORKER_URL = 'https://guestbook-worker.ericvla2468.workers.dev/api/comments';
 
   async function fetchComments() {
@@ -56,16 +55,28 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
     const author = document.getElementById('author').value;
     const content = document.getElementById('content').value;
+    const button = document.querySelector('#comment-form button');
 
-    await fetch(WORKER_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ author, content }),
-    });
+    button.disabled = true;
+    button.textContent = 'Submitting...';
 
-    document.getElementById('author').value = '';
-    document.getElementById('content').value = '';
-    fetchComments();
+    try {
+      await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ author, content }),
+      });
+
+      document.getElementById('author').value = '';
+      document.getElementById('content').value = '';
+      button.textContent = 'Add Comment';
+      button.disabled = false;
+      fetchComments();
+    } catch (error) {
+      button.textContent = 'Add Comment';
+      button.disabled = false;
+      alert('There was an error submitting your comment. Please try again.');
+    }
   }
 
   document.getElementById('comment-form').addEventListener('submit', addComment);

@@ -411,6 +411,26 @@ footer p::before {
   transform: translateY(-2px) scale(1.03);
 }
 
+/* Remove button animation/checkmark/spinner styles */
+#comment-form button.circle-transition {
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+  padding: 0.9rem 1.2rem;
+  min-width: unset;
+  transition: none;
+  display: inline-block;
+  align-items: unset;
+  justify-content: unset;
+  font-size: 1.1rem;
+}
+
+#comment-form button .spinner,
+#comment-form button .checkmark,
+#comment-form button.checkmark-success {
+  display: none !important;
+}
+
 #comments .comment {
   background: var(--secondary-dark, #121629);
   border-radius: 6px;
@@ -429,6 +449,41 @@ footer p::before {
   display: block;
   margin-top: 0.3rem;
   font-size: 0.92em;
+}
+
+/* Section Overview Styles */
+.section-overview {
+  background: var(--card-bg, #232946);
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  text-align: center;
+}
+
+.section-overview ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  gap: 2rem;
+}
+
+.section-overview li {
+  display: inline;
+}
+
+.section-overview a {
+  color: var(--primary-blue, #3f8efc);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.section-overview a:hover {
+  color: var(--primary-purple, #a259f7);
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
