@@ -10,11 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const sectionHeight = current.offsetHeight;
       const sectionTop = current.offsetTop - 100;
       const sectionId = current.getAttribute("id");
+      const navLink = document.querySelector(".nav-links a[href*=" + sectionId + "]");
       
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        document.querySelector(".nav-links a[href*=" + sectionId + "]").classList.add("active");
-      } else {
-        document.querySelector(".nav-links a[href*=" + sectionId + "]").classList.remove("active");
+      if (navLink) {
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          navLink.classList.add("active");
+        } else {
+          navLink.classList.remove("active");
+        }
       }
     });
   }
