@@ -1,8 +1,0 @@
-name = "guestbook-worker"
-main = "worker/index.js"
-compatibility_date = "2024-04-15"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "guestbook"
-database_id = "<your-d1-database-id>"
