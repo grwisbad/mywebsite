@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const response = await fetch(WORKER_URL);
     const comments = await response.json();
     document.getElementById('comments').innerHTML = comments.map(
-      c => `<div><strong>${c.author}</strong>: ${c.content}</div>`
+      c => `<div class="comment"><strong>${c.author}</strong>: ${c.content}<small>${new Date(c.created_at).toLocaleString()}</small></div>`
     ).join('');
   }
 
