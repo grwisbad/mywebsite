@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   //Comment Section Logic
-  const WORKER_URL = 'https://guestbook-worker.ericvla2468.workers.dev';
+  const WORKER_URL = 'https://guestbook-worker.ericvla2468.workers.dev/api/comments';
 
   async function fetchComments() {
     const response = await fetch(WORKER_URL);
