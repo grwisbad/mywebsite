@@ -6,7 +6,7 @@
 	{
 	  "binding": "DB",
 	  "database_name": "guestbook",
-	  "database_id": "<your-d1-database-id>"
+	  "database_id": "b5bf53f8-4255-4e63-bc14-9961814054e3"
 	}
   ]
 }
