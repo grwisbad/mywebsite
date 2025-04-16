@@ -486,6 +486,31 @@ footer p::before {
   text-decoration: underline;
 }
 
+/* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.page-btn {
+  background: var(--secondary-dark, #121629);
+  color: var(--primary-blue, #3f8efc);
+  border: 1.5px solid var(--primary-blue, #3f8efc);
+  border-radius: 6px;
+  padding: 0.4em 1em;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.page-btn.active,
+.page-btn:hover {
+  background: var(--primary-blue, #3f8efc);
+  color: #fff;
+}
+
 @media (max-width: 768px) {
     .experience-grid, .skills-grid {
         grid-template-columns: 1fr;
