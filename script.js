@@ -42,13 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
   async function fetchComments() {
     const response = await fetch(WORKER_URL);
     const comments = await response.json();
-    const commentsSection = document.getElementById('comments');
-    commentsSection.innerHTML = comments.map(comment => `
-      <div class="comment">
-        <p><strong>${comment.author}</strong>: ${comment.content}</p>
-        <small>${new Date(comment.created_at).toLocaleString()}</small>
-      </div>
-    `).join('');
+    document.getElementById('comments').innerHTML = comments.map(
+      c => `<div><strong>${c.author}</strong>: ${c.content}</div>`
+    ).join('');
   }
 
   async function addComment(event) {
